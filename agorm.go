@@ -26,7 +26,7 @@ func InitPostgres(cfg Config, migrationList []interface{}) *gorm.DB {
 		log.Fatalln(err)
 	}
 
-	for m := range migrationList {
+	for _, m := range migrationList {
 		db.AutoMigrate(m)
 	}
 
